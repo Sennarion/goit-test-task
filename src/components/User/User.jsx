@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   UserItem,
@@ -10,7 +11,23 @@ import {
 import Button from 'components/Button/Button';
 import logo from '../../images/logo.svg';
 
-function User({ user, toggleFollow }) {
+function User({ user, updateUsers }) {
+  const [followers, setFollowers] = useState(user.followers);
+  const [isFollow, setIsFollow] = useState(user.isFollow ?? false);
+
+  function toggleFollow() {
+    setIsFollow(prevIsFollow => !prevIsFollow);
+    setFollowers(prevFollowers =>
+      isFollow ? prevFollowers - 1 : prevFollowers + 1
+    );
+
+    updateUsers({
+      ...user,
+      followers,
+      isFollow,
+    });
+  }
+
   return (
     <UserItem>
       <Logo src={logo} alt="go-it logo" width="88" />
@@ -20,7 +37,7 @@ function User({ user, toggleFollow }) {
         </Ellipse>
         <UserText>{user.tweets} tweets</UserText>
         <UserText>{user.followers.toLocaleString('en-US')} followers</UserText>
-        <Button onClick={() => toggleFollow(user.id)} isFollow={user.isFollow}>
+        <Button onClick={toggleFollow} isFollow={user.isFollow}>
           {user.isFollow ? 'Following' : 'Follow'}
         </Button>
       </UserInfo>
@@ -33,8 +50,9 @@ User.propTypes = {
     avatar: PropTypes.string.isRequired,
     tweets: PropTypes.number.isRequired,
     followers: PropTypes.number.isRequired,
+    isFollow: PropTypes.bool,
   }).isRequired,
-  toggleFollow: PropTypes.func.isRequired,
+  updateUsers: PropTypes.func.isRequired,
 };
 
 export default User;
