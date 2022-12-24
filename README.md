@@ -1,7 +1,7 @@
 This is a simple test task from the goit school, designed for educational
 purposes.
 
-Link to the project page - https://sennarion.github.io/goit-test-task/
+Link to the live page - https://sennarion.github.io/goit-test-task/
 
 The page template:
 
@@ -10,4 +10,4 @@ The page template:
 The following technologies were used in the development of the project:
 
 - html/css, svg, responsive images;
-- js, react, styled components, proptypes;
+- js, react, styled components, proptypes.
