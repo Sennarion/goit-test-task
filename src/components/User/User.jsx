@@ -10,7 +10,7 @@ import {
 import Button from 'components/Button/Button';
 import logo from '../../images/logo.svg';
 
-export default function User({ user, toggleFollow }) {
+function User({ user, toggleFollow }) {
   return (
     <UserItem>
       <Logo src={logo} alt="go-it logo" width="88" />
@@ -36,3 +36,5 @@ User.propTypes = {
   }).isRequired,
   toggleFollow: PropTypes.func.isRequired,
 };
+
+export default User;
