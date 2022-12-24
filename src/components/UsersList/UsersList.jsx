@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import User from 'components/User/User';
 import { List } from './UserList.styled';
 
-function UsersList({ users, updateUsers }) {
+function UsersList({ users, toggleFollow }) {
   return (
     <List>
       {users.map(user => (
-        <User key={user.id} user={user} updateUsers={updateUsers} />
+        <User key={user.id} user={user} toggleFollow={toggleFollow} />
       ))}
     </List>
   );
