@@ -1,5 +1,4 @@
-This is a simple test task from the goit school, designed for educational
-purposes.
+This is a simple test task from GoIT School designed for educational purposes.
 
 Link to the live page - https://sennarion.github.io/goit-test-task/
 
